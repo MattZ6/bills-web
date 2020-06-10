@@ -9,13 +9,22 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #ffffff;
+    background: #f9f9f9;
     color: #333333;
     -webkit-font-smoothing : antialiased;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
 
   body, input, button {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
   }
 
