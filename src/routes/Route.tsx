@@ -10,11 +10,13 @@ import { useAuth } from '../hooks/auth';
 interface RouteProps extends ReactDOMRouteProps {
   isPrivate?: boolean;
   component: React.ComponentType;
+  layout?: React.ComponentType;
 }
 
 const Route: React.FC<RouteProps> = ({
   isPrivate = false,
   component: Component,
+  layout,
   ...rest
 }) => {
   const { isAuthenticated } = useAuth();
@@ -23,15 +25,23 @@ const Route: React.FC<RouteProps> = ({
     <ReactDOMRoute
       {...rest}
       render={({ location }) => {
-        return isPrivate === isAuthenticated ? (
-          <Component />
-        ) : (
-          <Redirect
-            to={{
-              pathname: isPrivate ? '/' : '/app',
-              state: { from: location },
-            }}
-          />
+        if (isPrivate !== isAuthenticated) {
+          return (
+            <Redirect
+              to={{
+                pathname: isPrivate ? '/sign/in' : '/app',
+                state: { from: location },
+              }}
+            />
+          );
+        }
+
+        const Layout = layout ?? React.Fragment;
+
+        return (
+          <Layout>
+            <Component />
+          </Layout>
         );
       }}
     />

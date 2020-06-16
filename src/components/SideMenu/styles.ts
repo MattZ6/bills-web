@@ -1,58 +1,90 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import colors from '../../styles/colors';
+
+const linkButtonStyle = css`
+  display: flex;
+  align-items: center;
+
+  margin: 4px 8px;
+  border-radius: 6px;
+  border: 0;
+  height: 40px;
+  background: transparent;
+  text-align: start;
+  padding: 0 8px;
+
+  text-decoration: none;
+
+  transition: all 200ms ease-out;
+
+  &:focus {
+    background: rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.075);
+    }
+
+    &:active {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.025);
+  }
+
+  > strong {
+    flex: 1;
+
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 16px;
+
+    overflow: hidden;
+    white-space: pre;
+    text-overflow: ellipsis;
+  }
+`;
 
 export const Container = styled.aside`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   position: sticky;
   top: 0;
   border-right: 1px solid ${colors.divider};
 
   > button {
-    display: flex;
-    align-items: center;
-
-    margin: 8px;
-    border-radius: 6px;
-    border: 0;
-    height: 40px;
-    background: transparent;
-    text-align: start;
-    padding: 0 8px;
+    ${linkButtonStyle};
 
     color: ${colors.warn};
+  }
+`;
 
-    transition: all 200ms ease-out;
+export const Content = styled.div`
+  flex: 1;
+`;
 
-    &:focus {
-      background: rgba(0, 0, 0, 0.05);
+export const Links = styled.nav`
+  display: flex;
+  flex-direction: column;
 
-      &:hover {
-        background: rgba(0, 0, 0, 0.075);
-      }
+  & + nav {
+    padding-top: 4px;
+    margin-top: 4px;
+    border-top: 1px solid ${colors.divider};
+  }
 
-      &:active {
-        background: rgba(0, 0, 0, 0.1);
-      }
-    }
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.025);
-    }
+  > a {
+    ${linkButtonStyle};
 
     > strong {
-      flex: 1;
+      color: ${colors.text};
+    }
 
-      font-size: 14px;
-      line-height: 20px;
-      margin-left: 16px;
-
-      overflow: hidden;
-      white-space: pre;
-      text-overflow: ellipsis;
+    > svg {
+      color: ${colors.hintIcon};
     }
   }
 `;

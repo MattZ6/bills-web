@@ -5,13 +5,19 @@ import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 import { Container } from './styles';
 
-interface HeaderProps {
+interface MonthHeaderProps {
+  overline: string;
   date: Date;
   onNext(): void;
   onPrev(): void;
 }
 
-const Header: React.FC<HeaderProps> = ({ date, onPrev, onNext }) => {
+const MonthHeader: React.FC<MonthHeaderProps> = ({
+  date,
+  overline,
+  onPrev,
+  onNext,
+}) => {
   const formatedMonth = useMemo(() => {
     const stringFormat = isSameYear(new Date(), date) ? 'MMMM' : 'MMMM yyyy';
 
@@ -29,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ date, onPrev, onNext }) => {
   return (
     <Container>
       <div>
-        <span>Contas de</span>
+        <span>{overline}</span>
         <h1>{formatedMonth}</h1>
       </div>
 
@@ -48,4 +54,4 @@ const Header: React.FC<HeaderProps> = ({ date, onPrev, onNext }) => {
   );
 };
 
-export default React.memo(Header);
+export default React.memo(MonthHeader);

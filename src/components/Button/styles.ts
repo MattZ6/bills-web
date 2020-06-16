@@ -1,9 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import colors from '../../styles/colors';
 
-export const Container = styled.button`
+interface ContainerProps {
+  outline: boolean;
+}
+
+export const Container = styled.button<ContainerProps>`
   padding: 8px 16px;
   border-radius: 4px;
   background: ${colors.primary};
@@ -28,6 +32,26 @@ export const Container = styled.button`
   &:active {
     background: ${darken(0.05, colors.primary)};
   }
+
+  ${(props) =>
+    props.outline &&
+    css`
+      background: transparent;
+      border: 1px solid ${colors.primary};
+      color: ${colors.primary};
+
+      &:focus {
+        background: ${lighten(0.35, colors.primary)};
+      }
+
+      &:hover {
+        background: ${lighten(0.4, colors.primary)};
+      }
+
+      &:active {
+        background: ${lighten(0.2, colors.primary)};
+      }
+    `}
 
   &:disabled {
     cursor: default;

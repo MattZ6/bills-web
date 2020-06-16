@@ -1,19 +1,28 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 
 import Route from './Route';
 
-import Dashboard from '../pages/Dashboard';
-import CreateBill from '../pages/CreateBill';
+import Main from '../layouts/Main';
 
 import SignIn from '../pages/SignIn';
 
+import Dashboard from '../pages/Dashboard';
+import Transactions from '../pages/Transactions';
+
 const Routes: React.FC = () => (
   <Switch>
-    <Route path="/" exact component={SignIn} />
+    <Route path="/sign/in" component={SignIn} />
 
-    <Route path="/app" isPrivate component={Dashboard} />
-    <Route path="/nova" component={CreateBill} />
+    <Route path="/app" isPrivate component={Dashboard} layout={Main} />
+    <Route
+      path="/transactions"
+      isPrivate
+      component={Transactions}
+      layout={Main}
+    />
+
+    <Redirect from="**" to="/app" />
   </Switch>
 );
 

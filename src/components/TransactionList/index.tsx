@@ -1,12 +1,13 @@
 import React, { HTMLAttributes } from 'react';
 
-import Transaction from '../Transaction';
-import { TransactionDTO } from '../..';
+import { ITransactionDTO } from '../../services/transactions';
+
+import Transaction from './Transaction';
 
 import { Container } from './styles';
 
 interface TransactionListProps extends HTMLAttributes<HTMLDivElement> {
-  transactions: TransactionDTO[];
+  transactions: ITransactionDTO[];
 }
 
 const TransactionList: React.FC<TransactionListProps> = ({ transactions }) => {

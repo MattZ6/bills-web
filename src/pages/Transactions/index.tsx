@@ -14,9 +14,7 @@ import {
   MdErrorOutline,
 } from 'react-icons/md';
 
-import { getUsersMonthBalance, IBalanceDTO, ITransactionDTO } from '../../services/transactions';
-
-import { useProfile } from '../../hooks/profile';
+import { getMonthBalance, IBalanceDTO, ITransactionDTO } from '../../services/transactions';
 
 import MonthHeader from '../../components/MonthHeader';
 import HeaderCard from '../../components/HeaderCard';
@@ -25,10 +23,8 @@ import OnboardHint from '../../components/OnboardHint';
 
 import { Container, Balances } from './styles';
 
-const Dashboard: React.FC = () => {
+const Transactions: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
-
-  const { profile } = useProfile();
 
   const [withScrollTop, setWithScrollTop] = useState(false);
 
@@ -65,16 +61,11 @@ const Dashboard: React.FC = () => {
   }, [loading, error, transactions.length]);
 
   const getTransactions = useCallback(async () => {
-    if (!profile) {
-      return;
-    }
-
     setLoading(() => true);
     setError(() => false);
 
     try {
-      const data = await getUsersMonthBalance({
-        user_id: profile.id,
+      const data = await getMonthBalance({
         year: currenteDate.getFullYear(),
         month: currenteDate.getMonth() + 1,
       });
@@ -90,7 +81,7 @@ const Dashboard: React.FC = () => {
         setLoading((state) => (state ? false : state));
       }, 500);
     }
-  }, [currenteDate, profile]);
+  }, [currenteDate]);
 
   useEffect(() => {
     getTransactions();
@@ -99,7 +90,7 @@ const Dashboard: React.FC = () => {
   return (
     <Container ref={contentRef} onScroll={handleScroll}>
       <MonthHeader
-        overline="Minhas contas de"
+        overline="Contas de"
         date={currenteDate}
         onPrev={handlePrevMonth}
         onNext={handleNextMonth}
@@ -148,4 +139,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Transactions;

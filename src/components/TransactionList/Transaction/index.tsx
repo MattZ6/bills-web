@@ -1,14 +1,14 @@
 import React, { HTMLAttributes } from 'react';
 import { MdShoppingBasket, MdLocalOffer } from 'react-icons/md';
 
-import { TransactionDTO } from '../..';
+import { ITransactionDTO } from '../../../services/transactions';
 
 import { Container, Content, User, Price } from './styles';
 
 interface TransactionProps extends HTMLAttributes<HTMLDivElement> {
   first?: boolean;
   last?: boolean;
-  transaction: TransactionDTO;
+  transaction: ITransactionDTO;
 }
 
 const Transaction: React.FC<TransactionProps> = ({
@@ -31,7 +31,7 @@ const Transaction: React.FC<TransactionProps> = ({
       </aside>
 
       <Content>
-        <small>Itáu</small>
+        <small>Itaú</small>
         <strong>{transaction.description}</strong>
         <div>
           {transaction.title && (

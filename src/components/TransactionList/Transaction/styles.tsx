@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
-import colors from '../../../../styles/colors';
+import colors from '../../../styles/colors';
 
 interface ContainerProps {
   isIncome: boolean;
@@ -8,12 +8,25 @@ interface ContainerProps {
   isLast: boolean;
 }
 
+const enterAnimation = keyframes`
+  from{
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 export const Container = styled.main<ContainerProps>`
   display: flex;
   align-items: center;
 
   padding: 16px;
   position: relative;
+
+  animation: ${enterAnimation} 200ms ease-out;
 
   > aside {
     display: flex;

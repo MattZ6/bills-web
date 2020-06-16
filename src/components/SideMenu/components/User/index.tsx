@@ -1,8 +1,12 @@
 import React from 'react';
 
+import { useProfile } from '../../../../hooks/profile';
+
 import { Container } from './styles';
 
 const User: React.FC = () => {
+  const { profile } = useProfile();
+
   return (
     <Container>
       <img
@@ -11,8 +15,8 @@ const User: React.FC = () => {
       />
 
       <div>
-        <strong>Matheus Z.</strong>
-        <span>#matt_z6</span>
+        <strong>{profile?.first_name}</strong>
+        <span>{profile?.username}</span>
       </div>
     </Container>
   );
