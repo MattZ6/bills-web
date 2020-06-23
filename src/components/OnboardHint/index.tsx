@@ -33,7 +33,7 @@ const OnboardHint: React.FC<OnboardHint> = ({
       {description && <p>{description}</p>}
 
       {buttonText && (
-        <Button outline onClick={onClick}>
+        <Button outline onClick={onClick} style={{ marginTop: 16 }}>
           {buttonText}
         </Button>
       )}

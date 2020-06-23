@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useProfile } from '../../../../hooks/profile';
+import { useProfile } from '../../../../../../hooks/profile';
 
 import { Container } from './styles';
 

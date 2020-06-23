@@ -46,7 +46,7 @@ export interface ITransactionDTO {
 
 interface IBalanceResponseDTO {
   balance: IBalanceDTO;
-  transactions:ITransactionDTO[];
+  transactions: ITransactionDTO[];
 }
 
 function getTransformedData(data: IBalanceResponseDTO): IBalanceResponseDTO {
@@ -57,12 +57,12 @@ function getTransformedData(data: IBalanceResponseDTO): IBalanceResponseDTO {
       formatedOutcome: formatValue(data.balance.outcome),
       formatedTotal: formatValue(data.balance.total),
     },
-    transactions: data.transactions.map(x => ({
+    transactions: data.transactions.map((x) => ({
       ...x,
       formatedValue: formatValue(x.value),
-      formatedDate: format(new Date(x.date), "dd 'de' MMMM", { locale: ptBR })
+      formatedDate: format(new Date(x.date), "dd 'de' MMMM", { locale: ptBR }),
     })),
-  }
+  };
 }
 
 export function getMonthBalance({
@@ -70,13 +70,14 @@ export function getMonthBalance({
   month,
 }: IGetMonthBalanceRequestDTO): Promise<IBalanceResponseDTO> {
   return new Promise((resolve, reject) => {
-      api.get<IBalanceResponseDTO>('/v1/transactions', {
+    api
+      .get<IBalanceResponseDTO>('/v1/transactions', {
         params: {
           year,
           month,
         },
       })
-      .then(res => {
+      .then((res) => {
         resolve(getTransformedData(res.data));
       })
       .catch(reject);
@@ -89,13 +90,14 @@ export function getUsersMonthBalance({
   month,
 }: IGetUsersMonthBalanceRequestDTO): Promise<IBalanceResponseDTO> {
   return new Promise((resolve, reject) => {
-      api.get<IBalanceResponseDTO>(`/v1/users/${user_id}/transactions`, {
+    api
+      .get<IBalanceResponseDTO>(`/v1/users/${user_id}/transactions`, {
         params: {
           year,
           month,
         },
       })
-      .then(res => {
+      .then((res) => {
         resolve(getTransformedData(res.data));
       })
       .catch(reject);

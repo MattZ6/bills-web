@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SideMenu from '../../components/SideMenu';
+import SideMenu from './components/SideMenu';
 
 import { Container, Content } from './styles';
 

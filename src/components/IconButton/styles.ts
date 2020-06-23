@@ -6,23 +6,18 @@ import colors from '../../styles/colors';
 interface ContainerProps {
   outline: boolean;
   clear: boolean;
-  marginLeft: boolean;
-  marginRight: boolean;
 }
 
 export const Container = styled.button<ContainerProps>`
   display: flex;
   align-items: center;
 
-  padding-left: ${(props) => (props.marginLeft ? 8 : 16)}px;
-  padding-right: ${(props) => (props.marginRight ? 8 : 16)}px;
-
-  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
   background: ${colors.primary};
   color: ${colors.primaryConstrast};
   border: 0;
-  min-height: 40px;
-  letter-spacing: 1px;
 
   transition: all 200ms ease-out;
 
@@ -99,16 +94,6 @@ export const Container = styled.button<ContainerProps>`
         }
       }
     `}
-
-
-  > strong {
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 500;
-
-    margin-left: ${(props) => (props.marginLeft ? 8 : 0)}px;
-    margin-right: ${(props) => (props.marginRight ? 8 : 0)}px;
-  }
 
   > svg {
     width: 24px;

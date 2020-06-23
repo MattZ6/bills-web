@@ -2,6 +2,8 @@ export default {
   primary: '#14a2ff',
   primaryConstrast: '#ffffff',
 
+  placeholder: '#999999',
+
   warn: '#f60022',
 
   divider: '#dddddd',
@@ -17,4 +19,6 @@ export default {
 
   text: '#111111',
   secondaryText: 'rgba(0, 0, 0, 0.54)',
+
+  overlay: 'rgba(0, 0, 0, 0.25)',
 };

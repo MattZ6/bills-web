@@ -14,7 +14,11 @@ import {
   MdErrorOutline,
 } from 'react-icons/md';
 
-import { getUsersMonthBalance, IBalanceDTO, ITransactionDTO } from '../../services/transactions';
+import {
+  getUsersMonthBalance,
+  IBalanceDTO,
+  ITransactionDTO,
+} from '../../services/transactions';
 
 import { useProfile } from '../../hooks/profile';
 
@@ -78,7 +82,6 @@ const Dashboard: React.FC = () => {
         year: currenteDate.getFullYear(),
         month: currenteDate.getMonth() + 1,
       });
-
 
       setBalance(data.balance);
 

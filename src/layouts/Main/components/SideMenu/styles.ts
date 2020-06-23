@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import colors from '../../styles/colors';
+import colors from '../../../../styles/colors';
 
 const linkButtonStyle = css`
   display: flex;
@@ -59,6 +59,7 @@ export const Container = styled.aside`
     ${linkButtonStyle};
 
     color: ${colors.warn};
+    margin-bottom: 8px;
   }
 `;
 
@@ -74,17 +75,5 @@ export const Links = styled.nav`
     padding-top: 4px;
     margin-top: 4px;
     border-top: 1px solid ${colors.divider};
-  }
-
-  > a {
-    ${linkButtonStyle};
-
-    > strong {
-      color: ${colors.text};
-    }
-
-    > svg {
-      color: ${colors.hintIcon};
-    }
   }
 `;

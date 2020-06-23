@@ -75,6 +75,10 @@ export const InputContainer = styled.label<InputContainerProps>`
     &:disabled {
       opacity: 0.6;
     }
+
+    &::placeholder {
+      color: ${colors.placeholder};
+    }
   }
 
   > svg {

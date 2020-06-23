@@ -14,8 +14,13 @@ import {
   MdErrorOutline,
 } from 'react-icons/md';
 
-import { getMonthBalance, IBalanceDTO, ITransactionDTO } from '../../services/transactions';
+import {
+  getMonthBalance,
+  IBalanceDTO,
+  ITransactionDTO,
+} from '../../services/transactions';
 
+import ModalAddTransation from '../../components/ModalAddTransation';
 import MonthHeader from '../../components/MonthHeader';
 import HeaderCard from '../../components/HeaderCard';
 import TransactionList from '../../components/TransactionList';
@@ -25,6 +30,8 @@ import { Container, Balances } from './styles';
 
 const Transactions: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const [modalOpen, setModalUpen] = useState(true);
 
   const [withScrollTop, setWithScrollTop] = useState(false);
 
@@ -52,6 +59,10 @@ const Transactions: React.FC = () => {
     setCurrentDate((state) => addMonths(state, 1));
   }, []);
 
+  const handleNewClicked = useCallback(() => {
+    setModalUpen((state) => !state);
+  }, []);
+
   const isEmpty = useMemo(() => {
     return !loading && !error && transactions.length === 0;
   }, [loading, error, transactions.length]);
@@ -70,7 +81,6 @@ const Transactions: React.FC = () => {
         month: currenteDate.getMonth() + 1,
       });
 
-
       setBalance(data.balance);
 
       setTransactions(data.transactions);
@@ -84,7 +94,7 @@ const Transactions: React.FC = () => {
   }, [currenteDate]);
 
   useEffect(() => {
-    getTransactions();
+    // getTransactions();
   }, [getTransactions]);
 
   return (
@@ -92,6 +102,7 @@ const Transactions: React.FC = () => {
       <MonthHeader
         overline="Contas de"
         date={currenteDate}
+        onNew={handleNewClicked}
         onPrev={handlePrevMonth}
         onNext={handleNextMonth}
       />
@@ -115,6 +126,8 @@ const Transactions: React.FC = () => {
           icon={MdAttachMoney}
         />
       </Balances>
+
+      <ModalAddTransation isOpen={modalOpen} setIsOpen={handleNewClicked} />
 
       {showTransactions && <TransactionList transactions={transactions} />}
 

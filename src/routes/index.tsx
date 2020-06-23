@@ -9,6 +9,7 @@ import SignIn from '../pages/SignIn';
 
 import Dashboard from '../pages/Dashboard';
 import Transactions from '../pages/Transactions';
+import Users from '../pages/Users';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -21,6 +22,7 @@ const Routes: React.FC = () => (
       component={Transactions}
       layout={Main}
     />
+    <Route path="/users" isPrivate component={Users} layout={Main} />
 
     <Redirect from="**" to="/app" />
   </Switch>

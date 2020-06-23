@@ -22,7 +22,7 @@ export const Balances = styled.div<BalancesProps>`
   position: sticky;
   top: 0;
   background: ${colors.background};
-  z-index: 10;
+  z-index: 5;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: transparent;

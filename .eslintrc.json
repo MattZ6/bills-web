@@ -41,7 +41,6 @@
     "import/no-duplicates": "off",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/no-async-promise-executor": false,
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {

@@ -1,13 +1,16 @@
 import React, { useMemo } from 'react';
 import { isSameYear, format, addMonths, subMonths } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { MdAddCircle, MdChevronLeft, MdChevronRight } from 'react-icons/md';
+
+import Button from '../Button';
 
 import { Container } from './styles';
 
 interface MonthHeaderProps {
   overline: string;
   date: Date;
+  onNew?(): void;
   onNext(): void;
   onPrev(): void;
 }
@@ -15,6 +18,7 @@ interface MonthHeaderProps {
 const MonthHeader: React.FC<MonthHeaderProps> = ({
   date,
   overline,
+  onNew,
   onPrev,
   onNext,
 }) => {
@@ -38,6 +42,17 @@ const MonthHeader: React.FC<MonthHeaderProps> = ({
         <span>{overline}</span>
         <h1>{formatedMonth}</h1>
       </div>
+
+      {onNew && (
+        <Button
+          outline
+          leftIcon={MdAddCircle}
+          style={{ marginRight: 8 }}
+          onClick={onNew}
+        >
+          NOVO
+        </Button>
+      )}
 
       <nav>
         <button type="button" onClick={onPrev}>

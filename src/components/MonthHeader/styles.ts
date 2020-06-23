@@ -10,6 +10,8 @@ export const Container = styled.header`
   padding: 48px 48px 16px;
 
   > div {
+    flex: 1;
+
     > span {
       font-weight: 500;
       font-size: 16px;
@@ -24,6 +26,26 @@ export const Container = styled.header`
       text-transform: capitalize;
       color: ${colors.text};
     }
+  }
+
+  > main {
+    /* > button {
+      display: flex;
+      align-items: center;
+
+      height: 40px;
+      padding: 0 8px;
+
+      > svg {
+        margin-right: 8px;
+        width: 24px;
+        height: 24px;
+      }
+
+      > strong {
+        font-size: 20px;
+      }
+    } */
   }
 
   > nav {
@@ -81,9 +103,10 @@ export const Container = styled.header`
       }
 
       > strong {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 20px;
-        text-transform: capitalize;
+        letter-spacing: 1px;
+        text-transform: uppercase;
       }
     }
   }

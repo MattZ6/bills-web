@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { MdMailOutline, MdLockOutline } from 'react-icons/md';
+import { MdPersonOutline, MdLockOutline } from 'react-icons/md';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
@@ -95,7 +95,7 @@ const SignIn: React.FC = () => {
           <Input
             name="username"
             autoCapitalize="false"
-            icon={MdMailOutline}
+            icon={MdPersonOutline}
             placeholder="Nome de usuário"
             disabled={loading}
             disabledKeys={[' ', ',', '.', '-']}
