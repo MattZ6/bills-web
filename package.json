@@ -22,7 +22,7 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.1",
     "react-spring": "8.0.27",
-    "styled-components": "5.1.0",
+    "styled-components": "5.1.1",
     "typescript": "3.7.5",
     "uuidv4": "6.1.0",
     "yup": "0.29.1"
@@ -51,7 +51,7 @@
   "devDependencies": {
     "@types/react-modal": "3.10.6",
     "@types/react-router-dom": "5.1.5",
-    "@types/styled-components": "5.1.0",
+    "@types/styled-components": "5.1.1",
     "@types/yup": "0.29.3",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
