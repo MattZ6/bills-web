@@ -3169,13 +3169,6 @@
     "@typescript-eslint/types" "4.5.0"
     eslint-visitor-keys "^2.0.0"
 
-"@unform/core@2.1.5":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@unform/core/-/core-2.1.5.tgz#e31e85a70c5068a81dd3f780829c6f423ca73d61"
-  integrity sha512-S//s1BQ1p2zl29LnIB7Qb+Vm3WvNSk0lt4BeOt4emxex+SYqqOvg8C19IPL+aKPQUuhAYHg5TNNXAA12wU7Z9A==
-  dependencies:
-    dot-object "^2.1.4"
-
 "@unform/core@2.1.6":
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/@unform/core/-/core-2.1.6.tgz#75df5fe813d4e94af46ad3570da068ff13d71b99"
@@ -3183,12 +3176,12 @@
   dependencies:
     dot-object "^2.1.4"
 
-"@unform/web@2.1.5":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@unform/web/-/web-2.1.5.tgz#d5f3a73a66092bec809532672583aba6d6e56d26"
-  integrity sha512-t3CNOVIs7tBAskSbVpJrWYgtLAVGm94dKBdM/teQBrCMXql5XWdpM8iUmPX55zEcLYLjWIEMh4qO3REQpoc/TQ==
+"@unform/web@2.1.6":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@unform/web/-/web-2.1.6.tgz#8870c5f2f70828d246457cb155fdf825ad9bba03"
+  integrity sha512-EawnCaIYcF7UwbRmYn9k+KQBCkrH5nQjd5IGQL3rKZ7tSQNADenfuPUuBmRFE3mOBcIiIUgcYl0PMK5XFj5zFA==
   dependencies:
-    "@unform/core" "2.1.5"
+    "@unform/core" "2.1.6"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
